@@ -23,7 +23,7 @@ type Item = {
     b: number;
     c: boolean;
 }
-const foo = (name: string, age: number) =>'Hello'
+const foo = (name: string, age: number) => 'Hello';
 
 type T1 = {
     // ! for let P in ['x', 'y']
@@ -104,5 +104,9 @@ type MyIncludesT = MyIncludes<[boolean, 2, 3, 5, 6, 7], false>
 
 // ! Parameters
 
-type MyParameters<T> = T extends (...args: infer F) => any ? F: never
+type MyParameters<T> = T extends (...args: infer F) => any ? F : never
 type MyParametersT = MyParameters<typeof foo>
+
+// ! Unshift
+type MyUnshift<T extends any[], U> = [U, ...T]
+type MyUnshiftT = MyUnshift<[1, 2], 0>
