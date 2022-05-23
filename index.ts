@@ -46,7 +46,7 @@ type MyPick<T, K extends keyof T> = {[P in K]: T[P]}
 
 type PickType = MyPick<Item, 'a' | 'b'>
 
-// ! Readpnly type
+// ! Readonly type
 
 type MyReadonly<T> = {readonly [P in keyof T]: T[P]}
 
